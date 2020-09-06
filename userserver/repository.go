@@ -48,6 +48,7 @@ func MarshalUser(user *pb.User) *User {
 		Email:    user.Email,
 		Company:  user.Company,
 		Password: user.Password,
+		Age:      user.Age,
 	}
 }
 
@@ -66,6 +67,7 @@ func UnmarshalUser(user *User) *pb.User {
 		Email:    user.Email,
 		Company:  user.Company,
 		Password: user.Password,
+		Age:      user.Age,
 	}
 }
 
