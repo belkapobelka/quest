@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/micro/go-micro/v2"
-	pb "github.com/vlasove/Lec13/userserver/proto/user"
+	pb "github.com/vlasove/user/userserver/proto/user"
 )
 
 const schema = `

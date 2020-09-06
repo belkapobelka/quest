@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	pb "github.com/vlasove/Lec13/userserver/proto/user"
+	pb "github.com/vlasove/user/userserver/proto/user"
 	"golang.org/x/crypto/bcrypt"
 )
 

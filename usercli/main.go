@@ -8,7 +8,7 @@ import (
 
 	"github.com/micro/cli/v2"
 	"github.com/micro/go-micro/v2"
-	proto "github.com/vlasove/Lec13/usercli/proto/user"
+	proto "github.com/vlasove/user/usercli/proto/user"
 )
 
 func createUser(ctx context.Context, service micro.Service, user *proto.User) error {

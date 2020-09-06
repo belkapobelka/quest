@@ -5,7 +5,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 	uuid "github.com/satori/go.uuid"
-	pb "github.com/vlasove/Lec13/userserver/proto/user"
+	pb "github.com/vlasove/user/userserver/proto/user"
 )
 
 type User struct {
@@ -77,7 +77,7 @@ func (r *PostgresRepository) GetAllByAge(ctx context.Context, age int32) ([]*Use
 		return users, err
 	}
 
-	return nil, nil
+	return users, nil
 }
 
 func (r *PostgresRepository) GetAll(ctx context.Context) ([]*User, error) {

@@ -1,4 +1,4 @@
-module github.com/vlasove/Lec13/usercli
+module github.com/vlasove/user/usercli
 
 go 1.15
 

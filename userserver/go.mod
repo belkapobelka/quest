@@ -1,4 +1,4 @@
-module github.com/vlasove/Lec13/userserver
+module github.com/vlasove/user/userserver
 
 go 1.15
 
