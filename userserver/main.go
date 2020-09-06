@@ -14,6 +14,7 @@ const schema = `
 		email varchar(225) not null unique,
 		password varchar(225) not null,
 		company varchar(125),
+		age integer not null,
 		primary key (id)
 	);
 `

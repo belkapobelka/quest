@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"strconv"
 
 	"github.com/micro/cli/v2"
 	"github.com/micro/go-micro/v2"
@@ -54,6 +55,8 @@ func main() {
 			email := c.String("email")
 			company := c.String("company")
 			password := c.String("password")
+			strAge := c.String("age")
+			age, _ := strconv.ParseInt(strAge, 10, 32)
 
 			log.Println("test:", name, email, company, password)
 
@@ -63,6 +66,7 @@ func main() {
 				Email:    email,
 				Company:  company,
 				Password: password,
+				Age:      int32(age),
 			}
 
 			if err := createUser(ctx, service, user); err != nil {

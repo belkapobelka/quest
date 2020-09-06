@@ -18,6 +18,18 @@ type handler struct {
 	tokenService authable
 }
 
+func (s *handler) GetAllByAge(ctx context.Context, req *pb.User, res *pb.Response) error {
+	results, err := s.repository.GetAllByAge(ctx, req.Age)
+	if err != nil {
+		return err
+	}
+
+	users := UnmarshalUserCollection(results)
+	res.Users = users
+
+	return nil
+}
+
 func (s *handler) Get(ctx context.Context, req *pb.User, res *pb.Response) error {
 	result, err := s.repository.Get(ctx, req.Id)
 	if err != nil {

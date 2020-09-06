@@ -14,6 +14,7 @@ type User struct {
 	Email    string `sql:"email"`
 	Company  string `sql:"company"`
 	Password string `sql:"password"`
+	Age      int32  `sql:"age"`
 }
 
 type Repository interface {
@@ -21,6 +22,7 @@ type Repository interface {
 	Get(ctx context.Context, id string) (*User, error)
 	Create(ctx context.Context, user *User) error
 	GetByEmail(ctx context.Context, email string) (*User, error)
+	GetAllByAge(ctx context.Context, age int32) ([]*User, error)
 }
 
 type PostgresRepository struct {
@@ -65,6 +67,15 @@ func UnmarshalUser(user *User) *pb.User {
 		Company:  user.Company,
 		Password: user.Password,
 	}
+}
+
+func (r *PostgresRepository) GetAllByAge(ctx context.Context, age int32) ([]*User, error) {
+	users := make([]*User, 0)
+	if err := r.db.GetContext(ctx, users, "select * from users where age = $1", age); err != nil {
+		return users, err
+	}
+
+	return nil, nil
 }
 
 func (r *PostgresRepository) GetAll(ctx context.Context) ([]*User, error) {
